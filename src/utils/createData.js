@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
-import { createMessageData, createUserData } from './queryFunctions';
+import { createUserData, createTaskData } from './queryFunctions';
 
 (async () => {
-  await createMessageData();
   await createUserData();
+  await createTaskData();
   mongoose.connection.close();
 })();

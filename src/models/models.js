@@ -1,10 +1,5 @@
 import { Schema, model, Mongoose } from 'mongoose';
 
-const messageSchema = new Schema({
-  name: { type: String, required: true },
-  message: { type: String, required: true },
-});
-
 const taskSchema = new Schema({
   type: { 
     type: String, 
@@ -22,6 +17,5 @@ const userSchema = new Schema({
   lastName: { type: String, required: true},
 })
 
-export const Messages = model('messages', messageSchema);
 export const Users    = model('users', userSchema);
 export const Tasks    = model('tasks', taskSchema);

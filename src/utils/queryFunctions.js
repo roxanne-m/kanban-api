@@ -1,39 +1,23 @@
 import debug from 'debug';
 import '../models/connect';
 
-import { Messages, Users } from '../models/models';
+import { Messages, Tasks, Users } from '../models/models';
 
 const logger = debug('dev');
 
-const data = [
-  { name: 'orji', message: 'second message' },
-  { name: 'chidimo', message: 'first message' },
+const dataTasks = [
+  { title: 'fakeTitle', description: 'fakeDescription', assignee: 'fakeAssignee', type:'TODO' },
+  { title: 'fakeTitle1', description: 'fakeDescription1', assignee: 'fakeAssignee1', type:'TODO' },
 ];
 const dataUsers = [
   {firstName: 'Garrett', lastName: 'Freddo'},
   {firstName: 'Sarah', lastName: 'Singer'}
 ]
 
-export const createMessageData = async () => new Promise(resolve => {
-  const stop = data.length;
-
-  data.forEach(async (d, index) => {
-    const { name, message } = d;
-    const m = Messages({ name, message });
-    try {
-      await m.save();
-    } catch (err) {
-      logger(`error: ${err.message}`);
-    }
-
-    if (index + 1 === stop) resolve();
-  });
-});
-
 export const createUserData = async () => new Promise(resolve => {
-  const stop = data.length;
+  const stop = dataUsers.length;
 
-  data.forEach(async (d, index) => {
+  dataUsers.forEach(async (d, index) => {
     const { firstName, lastName } = d;
     const m = Users({ firstName, lastName });
     try {
@@ -46,9 +30,25 @@ export const createUserData = async () => new Promise(resolve => {
   });
 });
 
+export const createTaskData = async () => new Promise(resolve => {
+  const stop = dataTasks.length;
+
+  dataTasks.forEach(async (d, index) => {
+    const { title, description, type, assignee } = d;
+    const m = Tasks({ title, description, type, assignee  });
+    try {
+      await m.save();
+    } catch (err) {
+      logger(`error: ${err.message}`);
+    }
+
+    if (index + 1 === stop) resolve();
+  });
+});
+
 export const deleteUserData = async () => new Promise(resolve => {
-  const stop = data.length;
-  data.forEach(async (d, index) => {
+  const stop = dataUsers.length;
+  dataUsers.forEach(async (d, index) => {
     const { lastName } = d;
     try {
       await Users.deleteOne({ lastName });
@@ -60,12 +60,12 @@ export const deleteUserData = async () => new Promise(resolve => {
   });
 });
 
-export const deleteMessageData = async () => new Promise(resolve => {
-  const stop = data.length;
-  data.forEach(async (d, index) => {
-    const { name } = d;
+export const deleteTaskData = async () => new Promise(resolve => {
+  const stop = dataUsers.length;
+  dataUsers.forEach(async (d, index) => {
+    const { title } = d;
     try {
-      await Messages.deleteOne({ name });
+      await Users.deleteOne({ title });
     } catch (err) {
       logger(`error: ${err.message}`);
     }

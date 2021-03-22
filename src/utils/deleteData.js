@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
-import { deleteMessageData, deleteUserData } from './queryFunctions';
+import { deleteUserData, deleteTaskData } from './queryFunctions';
 
 (async () => {
-  await deleteMessageData();
   await deleteUserData();
+  await deleteTaskData();
   mongoose.connection.close();
 })();

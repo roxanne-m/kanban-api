@@ -1,12 +1,14 @@
 
 import mongoose from 'mongoose';
-import { createUserData, deleteUSerData } from '../src/utils/queryFunctions';
+import { createTaskData, createUserData, deleteTaskData, deleteUserData } from '../src/utils/queryFunctions';
 
 before(async () => {
-  await createData();
+  await createTaskData();
+  await createUserData();
 });
 
 after(async () => {
-  await deleteData();
+  await deleteUserData();
+  await deleteTaskData();
   mongoose.connection.close();
 });

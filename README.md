@@ -15,6 +15,7 @@ ROUTES
 The routes can all be found in the routes/index.js file in the repository, but this is a brief summary
 
 TASKS:
+
 path: /tasks
 For the different tasks, there are 4 separate routes:
 1) put (updates the task); arguments: type, assignee, title, description
@@ -23,18 +24,23 @@ For the different tasks, there are 4 separate routes:
 4) get (retrieves the task); arguments: none
 
 USERS:
+
 path : /users
 For the different users, there are 2 separate routes:
 1) get (retrieves the user); arguments: none
 2) post (creates the user); arguments: firstName, lastName
 
 User model: 
+```javascript
 const userSchema = new Schema({
   firstName: { type: String, required: true},
   lastName: { type: String, required: true},
 })
+```
 
 Task model: 
+
+```javascript
 const taskSchema = new Schema({
   type: { 
     type: String, 
@@ -46,5 +52,5 @@ const taskSchema = new Schema({
     description: {type: String, required: false},
     dateDue: {type: Date, required: true},
 })
-
+```
    

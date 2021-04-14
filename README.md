@@ -1,5 +1,5 @@
 
-Run the server locally
+### Run the server locally
 1) clone the repo
 2) cd into kanban-api
 3) run npm install
@@ -11,11 +11,11 @@ Run the server locally
 
 To make the frontend interact with the backend, I'd highly reccomend using CORS
 
-ROUTES
+### ROUTES
 
 The routes can all be found in the routes/index.js file in the repository, but this is a brief summary
 
-TASKS:
+#### TASKS:
 
 path: /tasks
 
@@ -25,7 +25,7 @@ For the different tasks, there are 4 separate routes:
 3) post (creates the task); arguments: type, assignee, title, description
 4) get (retrieves the task); arguments: none
 
-USERS:
+#### USERS:
 
 path : /users
 
@@ -33,7 +33,7 @@ For the different users, there are 2 separate routes:
 1) get (retrieves the user); arguments: none
 2) post (creates the user); arguments: firstName, lastName
 
-User model: 
+#### User model: 
 ```javascript
 const userSchema = new Schema({
   firstName: { type: String, required: true},
@@ -41,7 +41,7 @@ const userSchema = new Schema({
 })
 ```
 
-Task model: 
+#### Task model: 
 
 ```javascript
 const taskSchema = new Schema({

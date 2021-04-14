@@ -11,6 +11,7 @@ Run the server locally
 To make the frontend interact with the backend, I'd highly reccomend using CORS
 
 ROUTES
+
 The routes can all be found in the routes/index.js file in the repository, but this is a brief summary
 
 TASKS:

@@ -17,6 +17,7 @@ The routes can all be found in the routes/index.js file in the repository, but t
 TASKS:
 
 path: /tasks
+
 For the different tasks, there are 4 separate routes:
 1) put (updates the task); arguments: type, assignee, title, description
 2) delete (deletes the task); arguments: title
@@ -26,6 +27,7 @@ For the different tasks, there are 4 separate routes:
 USERS:
 
 path : /users
+
 For the different users, there are 2 separate routes:
 1) get (retrieves the user); arguments: none
 2) post (creates the user); arguments: firstName, lastName
